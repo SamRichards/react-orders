@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 import { StoreContext } from '../store'
-import { Chart } from '../components/chart';
+import { Chart } from '../components';
 
 export const ChartContainer = () => {
     const { state: { filteredCurrentOrders } } = useContext(StoreContext);

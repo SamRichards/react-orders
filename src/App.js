@@ -3,12 +3,9 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import { StoreProvider } from './store' 
 
-import { OrdersContainer } from './containers/orders';
-import { TabContainer } from './containers/tab';
-import { ChartContainer } from './containers/chart';
-import { FilterContainer } from './containers/filter';
+import { ChartContainer, FilterContainer, TabContainer, OrdersContainer } from './containers';
 
-import { TableComponent } from './components/table';
+import { TableComponent } from './components';
 
 function App() {
   return (

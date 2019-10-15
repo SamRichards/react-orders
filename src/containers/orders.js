@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { CircularProgress } from 'material-ui';
 import styled from 'styled-components';
 
-import { fetchOrders } from '../api/api';
+import { fetchOrders } from '../api';
 import { StoreContext } from '../store';
 import { ACTIONS } from '../constants';
 
