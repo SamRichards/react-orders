@@ -6,7 +6,8 @@ import { TAB_MAPPING } from '../constants';
 
 const initialState = {
     orders: null,
-    search: null,
+    filteredCurrentOrders: [],
+    search: '',
     loading: false,
     tab: Object.keys(TAB_MAPPING)[0]
 };

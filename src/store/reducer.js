@@ -1,4 +1,5 @@
-import { ACTIONS } from '../constants';
+import { ACTIONS, TAB_MAPPING } from '../constants';
+import { filterRows } from '../utils';
 
 export const reducer = (state, action) => {
     switch (action.type) {
@@ -12,13 +13,22 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 orders: action.payload,
-                loading: false
+                loading: false,
+                filteredCurrentOrders: action.payload.orders[TAB_MAPPING[state.tab].lookUpKey].data
             }
         case ACTIONS.FILTER_TABLE:
             return {
                 ...state,
-                tab: action.payload
+                tab: action.payload,
+                filteredCurrentOrders: filterRows(state.orders.orders[TAB_MAPPING[action.payload].lookUpKey].data, state.search)
             }
+        case ACTIONS.SEARCH: {
+            return {
+                ...state,
+                search: action.payload,
+                filteredCurrentOrders: filterRows(state.orders.orders[TAB_MAPPING[state.tab].lookUpKey].data, action.payload)
+            }
+        }
         default:
             return state;
     }

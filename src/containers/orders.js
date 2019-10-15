@@ -4,7 +4,7 @@ import { CircularProgress } from 'material-ui';
 import styled from 'styled-components';
 
 import { fetchOrders } from '../api/api';
-import { StoreContext } from '../store/store';
+import { StoreContext } from '../store';
 import { ACTIONS } from '../constants';
 
 const LoadingContainer = styled.div`

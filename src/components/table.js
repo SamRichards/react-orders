@@ -7,8 +7,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { v4 as uuid } from 'uuid';
 
-import { StoreContext } from '../store/store';
-import { TAB_MAPPING } from '../constants';
+import { StoreContext } from '../store';
 
 const TABLE_MAPPING = {
     soNumber: 'Sales Order',
@@ -22,8 +21,7 @@ const TABLE_MAPPING = {
 };
 
 export const TableComponent = () => {
-    const { state: { orders: { orders }, tab } } = useContext(StoreContext);
-    const rows = orders[TAB_MAPPING[tab].lookUpKey].data;
+    const { state: { filteredCurrentOrders } } = useContext(StoreContext);
 
     return (
         <Paper>
@@ -39,9 +37,9 @@ export const TableComponent = () => {
                 </TableHead>
                 <TableBody>
                     {
-                        rows.map((row) => {
+                        filteredCurrentOrders.map((row) => {
                             return (
-                                <TableRow key={uuid()}>
+                                <TableRow key={row['soNumber']}>
                                     {
                                         Object.keys(TABLE_MAPPING).map((value) => {
                                             return <TableCell align="center" key={uuid()}>{row[value]}</TableCell>

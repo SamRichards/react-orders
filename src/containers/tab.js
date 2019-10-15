@@ -1,7 +1,7 @@
 import { Paper, Tabs, Tab } from 'material-ui';
 import React, { useContext } from 'react';
 
-import { StoreContext } from '../store/store';
+import { StoreContext } from '../store';
 import { ACTIONS, TAB_MAPPING } from '../constants';
 
 export const TabContainer = () => {
